@@ -1,8 +1,21 @@
 import './App.css';
 import { Route } from "react-router-dom";
+import Welcome from "./pages/Welcome";
+import Products from "./pages/Products";
+import MainHeader from "./components/MainHeader";
 
 export default function App() {
   return (
-    <div></div>
+    <div>
+      <MainHeader></MainHeader>
+      <main>
+        <Route path="/welcome">
+          <Welcome></Welcome>
+        </Route>
+        <Route path="/products">
+          <Products></Products>
+        </Route>
+      </main>
+    </div>
   )
 }
