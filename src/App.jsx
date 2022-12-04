@@ -1,20 +1,25 @@
-import './App.css';
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Welcome from "./pages/Welcome";
 import Products from "./pages/Products";
 import MainHeader from "./components/MainHeader";
+import ProductDetail from "./pages/ProductDetail";
 
 export default function App() {
   return (
     <div>
       <MainHeader></MainHeader>
       <main>
-        <Route path="/welcome">
-          <Welcome></Welcome>
-        </Route>
-        <Route path="/products">
-          <Products></Products>
-        </Route>
+        <Switch>
+          <Route path="/welcome">
+            <Welcome></Welcome>
+          </Route>
+          <Route path="/products" exact>
+            <Products></Products>
+          </Route>
+          <Route path="/products/:productId">
+            <ProductDetail></ProductDetail>
+          </Route>
+        </Switch>
       </main>
     </div>
   )
